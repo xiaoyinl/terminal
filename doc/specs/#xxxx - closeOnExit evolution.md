@@ -19,7 +19,7 @@ Other terminal emulators like ConEmu have a similar feature.
 
 1. The existing `closeOnExit` profile key will become an enumerated string key with the following values/behaviours:
    * `always` - a tab or pane hosting this profile will always be closed when the launched connection terminates.
-   * `graceful` - a tab or pane hosting this profile will only be closed **if** the launched connection closes with an exit code != 0.
+   * `graceful` - a tab or pane hosting this profile will be closed **iff** the launched connection closes with an exit code == 0.
    * `never` - a tab or pane hosting this profile will not automatically close.
 2. The `ITerminalConnection` interface's `Disconnected` event will grow a new parameter, `ConnectionClosedEventArgs` (pending name), which will bear an exit code.
 3. As `TerminalApp` is responsible for producing connection instances, _it_ will subscribe to this event.
